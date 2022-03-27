@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+    crossorigin="anonymous"></script>
+<script>
+
+    function callAjax() {
+        return new Promise(function (resolve, reject) {
+            $.ajax({
+                url: 'https://api.hnpwa.com/v0/news/1.json',
+                success: function (data) {
+                    resolve(data);
+                }
+            });
+        });
+    }
+
+    function fetchData() {
+        var result = [];
+        callAjax().then(data => console.log(data));
+    }
+
+
+    fetchData();
+</script>
+
+</html>
